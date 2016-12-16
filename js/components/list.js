@@ -35,7 +35,7 @@ var Card = require('./card');
 var List = function(props){
 	var cards = [];
 	for(var i = 0; i < props.cards.length; i++){
-		cards.push(props.cards[i]);
+		cards.push(<Card text={props.cards[i]} />);
 	}
 	return(
 		<div className ="list">

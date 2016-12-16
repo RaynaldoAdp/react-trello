@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+var Card = require('./card');
 var List = require('./list');
 
 var ListContainer = React.createClass({
@@ -18,7 +19,7 @@ var ListContainer = React.createClass({
     },
     onAddSubmit: function(event) {
         event.preventDefault();
-        console.log(this.state.enteredText);
+        this.state.cards.push(this.state.enteredText);
     },
     render: function() {
         return <List cards = {this.state.cards} 
