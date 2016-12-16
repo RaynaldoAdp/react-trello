@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+var ListContainer = require('./list-container');
 
 
 var Board = function(prop) {
@@ -8,9 +9,9 @@ var Board = function(prop) {
         <div className="board">
         <div className="title">{prop.title}</div>
     	<div className="lists">{prop.lists}</div>
-            <List />
-            <List />
-            <List />
+            <ListContainer />
+            <ListContainer />
+            <ListContainer />
         </div>
     );
 };

@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 
 var Card = require('./card');
 
-var List = React.createClass({
+/*var List = React.createClass({
 	prop : {
 		title: 'lalala',
 		content: 'lalala',
@@ -30,6 +30,23 @@ var List = React.createClass({
         	</div>
     	);
     }
-});
+});*/
+
+var List = function(props){
+	var cards = [];
+	for(var i = 0; i < props.cards.length; i++){
+		cards.push(props.cards[i]);
+	}
+	return(
+		<div className ="list">
+			{cards}
+	         <form onSubmit={props.onAddSubmit}>
+            	<input type="text" id="writings" onChange={props.onAddInputChanged} required/>
+           		<button type="submit">submit</button>		
+           	</form>
+		</div>
+	);
+
+}
 
 module.exports = List;

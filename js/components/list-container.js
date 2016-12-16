@@ -1,3 +1,6 @@
+var React = require('react');
+var ReactDOM = require('react-dom');
+
 var List = require('./list');
 
 var ListContainer = React.createClass({
@@ -7,23 +10,21 @@ var ListContainer = React.createClass({
             cards: []
         }
     },
-
-    onCardClick: function() {
-        if (this.state.selected == 'english') {
-            this.setState({
-                selected: 'french'
-            });
-        }
-        else {
-            if (this.state.selected == 'french') {
-                this.setState({
-                    selected: 'english'
-                });
-            }
-        }
+    onAddInputChanged: function() {
+        console.log('onAddInputChanged');
+        this.setState({
+            enteredText: document.getElementById("writings").value
+        });
+    },
+    onAddSubmit: function(event) {
+        event.preventDefault();
+        console.log(this.state.enteredText);
     },
     render: function() {
-        return <List ={this.state[this.state.selected]}
-                     onClick={this.onCardClick} />;
+        return <List cards = {this.state.cards} 
+                onAddInputChanged = {this.onAddInputChanged}      
+                onAddSubmit = {this.onAddSubmit} />
     }
 });
+
+module.exports = ListContainer;
